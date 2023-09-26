@@ -5,14 +5,26 @@ import {
   CardNumberElement,
   CardExpiryElement,
   CardCvcElement,
+  Elements,
 } from "@stripe/react-stripe-js";
 import { PaymentMethodResult } from "@stripe/stripe-js";
 import { useRouter } from "next/router";
 import axios from "axios";
+import { loadStripe } from "@stripe/stripe-js";
 
-const Card = () => {
-  const stripe = useStripe();
+const stripePromise = loadStripe(
+  "pk_test_51Nu5HNA5JEtiO6bcmcMBZqI82kJBwUqB0vTTeZrkJoXjeu093pUoCZXZ0pMXPCD1eFyyjKP7vPj8w5ldoLI1znl400NtNJgQqo"
+);
+
+const Card = () => (
+  <Elements stripe={stripePromise}>
+    <Wrapper />
+  </Elements>
+);
+
+const Wrapper = () => {
   const elements = useElements();
+  const stripe = useStripe();
   const router = useRouter();
 
   const handleStripePayment = async (e: any) => {
@@ -37,8 +49,6 @@ const Card = () => {
         router.push(`/`);
         return;
       }
-
-      console.log("first", paymentMethod?.id);
 
       const response = await axios.post(
         `${process.env.NEXT_APP_STRIPE_PAYMENT_SERVICE}/create-payment`,
@@ -73,33 +83,17 @@ const Card = () => {
       >
         <div>
           <div>Card Number</div>
-          <CardNumberElement
-            id="cardNumber"
-            options={stripeInputOptions}
-            // onChange={(e) => {
-            //   handleChangeStripe(e);
-            // }}
-          />
+          <CardNumberElement id="cardNumber" options={stripeInputOptions} />
         </div>
 
         <div>
           <div>Expiration date</div>
-          <CardExpiryElement
-            id="cardExpiry"
-            options={stripeInputOptions}
-            // onChange={(e) => {
-            //   handleChangeStripe(e);
-            // }}
-          />
+          <CardExpiryElement id="cardExpiry" options={stripeInputOptions} />
         </div>
 
         <div>
           <div>Security code</div>
-          <CardCvcElement
-            id="cardCvc"
-            options={stripeInputOptions}
-            // onChange={(e) => handleChangeStripe(e)}
-          />
+          <CardCvcElement id="cardCvc" options={stripeInputOptions} />
         </div>
 
         <button>Pay</button>
