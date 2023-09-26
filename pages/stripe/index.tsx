@@ -51,7 +51,7 @@ const Wrapper = () => {
       }
 
       const response = await axios.post(
-        `${process.env.NEXT_APP_STRIPE_PAYMENT_SERVICE}/create-payment`,
+        `http://localhost:5000/stripe/create-payment`,
         {
           userId: "001",
           amount: 30,

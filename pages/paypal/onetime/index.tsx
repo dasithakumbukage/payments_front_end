@@ -22,6 +22,8 @@ const Onetime = () => {
       };
 
       const onApprove = async (data: any): Promise<any> => {
+        console.log("paypal onApprove");
+
         const res = await axios
           .get(
             `https://paypal-testing-backend-production.up.railway.app/paypal/create-payment-for-the-order/${data.orderID}`,

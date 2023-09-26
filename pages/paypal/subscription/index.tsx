@@ -34,6 +34,7 @@ const Subscription = () => {
       .then(async (response) => await response.data);
   };
 
+
   const cancelSubscription = async (): Promise<any> => {
     await axios
       .post(
