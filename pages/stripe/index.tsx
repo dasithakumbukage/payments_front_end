@@ -51,7 +51,7 @@ const Wrapper = () => {
       }
 
       const response = await axios.post(
-        `http://localhost:5000/stripe/create-payment`,
+        `https://paypal-testing-backend-production.up.railway.app/stripe/create-payment`,
         {
           userId: "001",
           amount: 30,
