@@ -1,0 +1,49 @@
+.main {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+}
+.inputFeilds {
+  padding: 10px 0;
+}
+.form {
+  width: 100%;
+}
+.subscription {
+  border: 2px solid black;
+  width: 50%;
+  padding: 20px;
+}
+.oneTimePayment {
+  border: 2px solid black;
+  width: 50%;
+  padding: 20px;
+}
+.createPayment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.heading {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.fieldsNames {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.payButton {
+  width: 100%;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+.mapSubscription {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.subId {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
