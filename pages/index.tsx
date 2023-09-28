@@ -7,6 +7,12 @@ export default function Home() {
     <div className={styles.main}>
       <Link
         className={styles.topic}
+        href={"http://localhost:3000/coin-payment"}
+      >
+        coin-payment
+      </Link>
+      <Link
+        className={styles.topic}
         href={"https://paymentsfrontend-production.up.railway.app/stripe"}
       >
         Stripe
