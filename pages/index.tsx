@@ -7,29 +7,22 @@ export default function Home() {
     <div className={styles.main}>
       <Link
         className={styles.topic}
-        href={"https://paymentsfrontend-production.up.railway.app/coin-payment"}
+        href={"http://localhost:3000/coin-payment"}
       >
         coin-payment
       </Link>
-      <Link
-        className={styles.topic}
-        href={"https://paymentsfrontend-production.up.railway.app/stripe"}
-      >
+      <Link className={styles.topic} href={"http://localhost:3000/stripe"}>
         Stripe
       </Link>
       <Link
         className={styles.topic}
-        href={
-          "https://paymentsfrontend-production.up.railway.app/paypal/onetime"
-        }
+        href={"http://localhost:3000/paypal/onetime"}
       >
         Paypal one time payment
       </Link>
       <Link
         className={styles.topic}
-        href={
-          "https://paymentsfrontend-production.up.railway.app/paypal/subscription"
-        }
+        href={"http://localhost:3000/paypal/subscription"}
       >
         Paypal subscription
       </Link>
